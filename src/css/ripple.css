@@ -1,0 +1,69 @@
+.legitRipple {
+  position: relative;
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 0;
+  /*
+	Example for different transition-durations:
+
+	&.longOpacity .legitRipple-ripple {
+		transition-duration: .15s, .9s*4;
+	}
+	&.longDrop .legitRipple-ripple {
+		transition-duration: .15s*5, .9s;
+		transition-timing-function: linear, cubic-bezier(1, 0, 0.8, 0);
+	}
+	&.longOpacity.longDrop .legitRipple-ripple {
+		transition-duration: .15s*5, .9s*4;
+		transition-timing-function: linear, cubic-bezier(1, 0, 0.8, 0);
+	}
+	*/
+}
+
+.legitRipple-ripple {
+  position: absolute;
+  z-index: -1;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  will-change: transform, width, opacity;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  width: 0;
+  opacity: 1;
+  -webkit-transition: width 0.15s linear, opacity 0.9s ease-out;
+  transition: width 0.15s linear, opacity 0.9s ease-out;
+}
+
+.legitRipple-ripple:before {
+  content: "";
+  padding-top: 100%;
+  display: block;
+}
+
+img ~ .legitRipple-ripple {
+  z-index: auto;
+}
+
+.legitRipple-template {
+  display: none;
+}
+
+.legitRipple-custom {
+  overflow: hidden;
+}
+
+.legitRipple-custom > * {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}

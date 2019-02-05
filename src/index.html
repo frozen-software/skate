@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Skate - Browser</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+        <link rel="stylesheet" href="css/ripple.css" type="text/css" />
+        <link rel="stylesheet/less" href="css/main.less" type="html/css" />
+
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no" />
+    </head>
+    <body>
+        <div class="main">
+            <div class="top">
+                <button>
+                    <span class="material-icons">arrow_back</span>
+                </button>
+                <button>
+                    <span class="material-icons">refresh</span>
+                </button>
+                <button>
+                    <span class="material-icons">arrow_forward</span>
+                </button>
+                <div class="input">
+                    <input type="text">
+                </div>
+                <button>
+                    <span class="material-icons">more_vert</span>
+                </button>
+            </div>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/ripple.js"></script>
+        <script>
+            $(document).ready(() => {
+                $("button").ripple();
+                $(".input").ripple();
+            });
+        </script>
+        <script src="js/less.min.js"></script>
+    </body>
+</html>
