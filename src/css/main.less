@@ -2,7 +2,8 @@
 @tdark: rgba(24, 24, 24, 0.144);
 @tlight: rgba(255, 255, 255, 0.712);
 @shadow: rgba(29, 29, 29, 0.26);
-@radius: 5px;
+@radius: 2px;
+@textDark: #222222;
 
 body {
     height: 100vh;
@@ -30,7 +31,7 @@ body {
     height: 30px;
     min-width: 30px;
     transition: all 0.5s ease;
-    border-radius: 2px;
+    border-radius: @radius;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,7 +58,7 @@ body {
     display: flex;
     border-radius: @radius;
     overflow: hidden;
-    background-color: @tlight;
+    background-color: @tdark;
     pointer-events: none;
     transition: all 0.5s ease;
 }
@@ -68,20 +69,39 @@ body {
     flex: 1;
     padding: 10px;
     background-color: transparent;
-    border-radius: @radius;
     pointer-events: auto;
 }
 
 .main .top .input:hover {
-    background-color: @tdark;
+    border-radius: 15px;
+    background-color: @tlight;
     box-shadow: 0 1px 2px @shadow;
+}
+
+.main .top .input:focus-within {
+    box-shadow: 0 1px 2px @shadow;
+    background-color: @tlight;
 }
 
 .legitRipple-ripple {
     /*ripple*/
+    color: inherit;
+}
+
+.material-menu {
+    /*position: fixed;*/
+    background-color: @tlight !important;
+    box-shadow: 0 1px 2px @shadow !important;
+    font-size: small !important;
+    min-width: 150px !important;
+}
+
+.material-menu li:hover {
+    background-color: @tdark !important;
 }
 
 * {
     outline: none;
     box-sizing: border-box;
+    font-family: @textDark !important;
 }
