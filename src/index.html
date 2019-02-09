@@ -1,105 +1,62 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Skate - Browser</title>
+	<head>
+		<meta charset="utf-8" />
+		<title>Skate - Browser</title>
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
-        <link rel="stylesheet" href="css/ripple.css" type="text/css" />
-        <link rel="stylesheet/less" href="css/main.less" type="text/css" />
-        <link rel="stylesheet" href="css/material-menu.css" type="text/css" />
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src *">
 
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no" />
-    </head>
-    <body>
-        <div class="main">
-            <div class="top">
-                <button title="Backwards">
-                    <span class="material-icons">arrow_back</span>
-                </button>
-                <button title="Refresh">
-                    <span class="material-icons">refresh</span>
-                </button>
-                <button title="Forwards">
-                    <span class="material-icons">arrow_forward</span>
-                </button>
-                <div class="input">
-                    <input type="text">
-                </div>
-                <button id="menu" title="More">
-                    <span class="material-icons">more_vert</span>
-                </button>
-            </div>
-        </div>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+		<link rel="stylesheet" href="css/ripple.css" type="text/css" />
+		<link rel="stylesheet/less" href="css/main.less" type="text/css" />
+		<link rel="stylesheet" href="css/material-menu.css" type="text/css" />
+		
+		<!-- LESS -->
+		<script src="js/less.min.js"></script>
 
-        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/material-menu.js"></script>
-        <script src="js/ripple.js"></script>
-        <script>
-            var electron = require("electron").remote;
-            var key = electron.globalShortcut;
-            var {AdBlockClient, FilterOptions} = require("ad-block");
+		<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no" />
+	</head>
+	<body>
+		<div class="main">
+			<div class="top">
+				<button title="Backwards" class="back">
+					<span class="material-icons">arrow_back</span>
+				</button>
+				<button title="Refresh" class="refresh">
+					<span class="material-icons">refresh</span>
+				</button>
+				<button title="Forwards" class="forward">
+					<span class="material-icons">arrow_forward</span>
+				</button>
+				<div class="input">
+					<button title="Secure">
+						<span class="material-icons">lock</span>
+					</button>
+					<input type="text">
+					<button title="Search" class="search">
+						<span class="material-icons">search</span>
+					</button>
+				</div>
+				<button id="menu" title="More">
+					<span class="material-icons">more_vert</span>
+				</button>
+			</div>
+			<div class="content">
+				<!-- Webview for now until I get layering figured out for the BrowserView :) -->
+				<webview src="https://google.com" preload="js/preload.js"></webview>
+			</div>
+		</div>
 
-            var client = new AdBlockClient();
-
-            $(document).ready(() => {
-                $("button").ripple();
-                $(".input").ripple();
-
-                // More button menu
-                $('#menu').materialMenu('init', {
-                    position: 'overlay',
-                    items: [
-                        {
-                            type: 'normal',
-                            text: 'Settings',
-                            click: () => {
-                                console.log("Settings");
-                            }
-                        },
-                        {
-                            type: 'divider'
-                        },
-                        {
-                            type: 'normal',
-                            text: 'Exit'
-                        },
-                    ]
-                }).click(function () {
-                    $(this).materialMenu('open');
-                });
-
-                // Right click menu
-                $('body').materialMenu('init', {
-                    items: [
-                        {
-                            type: 'normal',
-                            text: 'Add Bookmark'
-                        },
-                        {
-                            type: 'divider'
-                        },
-                        {
-                            type: 'normal',
-                            text: 'Inspect Element'
-                        },
-                        {
-                            type: 'normal',
-                            text: 'Exit'
-                        }
-                    ],
-                    position: '',
-                    animationSpeed: 100
-                }).bind('contextmenu', (e) => {
-                    $('body').materialMenu('open', e, {
-                        noclip: true
-                    });
-                });
-            });
-        </script>
-        <script src="js/less.min.js"></script>
-        <script>if (window.module) module = window.module;</script>
-    </body>
+		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+		<!-- jQuery plugins and modules -->
+		<script src="js/jquery/jquery.min.js"></script>
+		<script src="js/jquery/material-menu.js"></script>
+		<script src="js/jquery/ripple.js"></script>
+		<!-- UI/Buttons -->
+		<script src="js/interface.js"></script>
+		<!-- AdBlock -->
+		<script src="js/adblock.js"></script>
+		<script>if (window.module) module = window.module;</script>
+	</body>
 </html>
