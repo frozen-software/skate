@@ -42,6 +42,7 @@ $(document).ready(() => {
 		$(".http").css({ display: "none" });
 		$(".https").css({ display: "none" });
 		$(".error").css({ display: "none" });
+		$(".file").css({ display: "none" });
 	});
 
 	w.addEventListener("did-stop-loading", () => {
@@ -66,6 +67,11 @@ $(document).ready(() => {
 			$(".https").css({ display: "none" });
 			$(".error").css({ display: "none" });
 			$(".loading").css({ display: "none" });
+		}
+		if (p == "file:") {
+			$("." + protocol).css({ display: "none" });
+			protocol = "file";
+			$(".file").css({ display: "initial" });
 		}
 	});
 

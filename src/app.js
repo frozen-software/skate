@@ -1,4 +1,5 @@
 import { app, BrowserWindow, BrowserView, ipcMain } from 'electron';
+import path from 'path';
 
 if (require('electron-squirrel-startup')) {
 	app.quit();
@@ -14,7 +15,8 @@ const createWindow = () => {
 		webPreferences: {
 			nodeIntegration: true
 		},
-		frame: true
+		frame: true,
+		icon: path.join(__dirname, 'icons/skate_128x128.png')
 	});
 
 	mainWindow.setMenu(null);
