@@ -11,7 +11,7 @@ $ npm start 		# start the application
 ```
 How to build:
 ```
-$ npm build-win		# build the windows app
-$ npm build-mac		# build the darwin app
-$ npm build-linux	# build the linux app
+$ npm run build-win		# build the windows app
+$ npm run build-mac		# build the darwin app
+$ npm run build-linux	# build the linux app
 ```
