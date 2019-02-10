@@ -10,7 +10,7 @@
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "eslint src --color",
-    "build-win": "electron-forge make --platform=win",
+    "build-win": "electron-forge make --platform=win32",
     "build-mac": "electron-forge make --platform=darwin",
     "build-linux": "electron-forge make --platform=linux"
   },
