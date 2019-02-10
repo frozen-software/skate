@@ -9,4 +9,15 @@ initialize().then(() => {
             cb({ cancel: false });
         }
     });
+    /*
+    $("webview")[0].getWebContents().on("context-menu", (e, p) => {
+        var event = {
+            pageX: p.x,
+            pageY: p.y
+        }
+        $('body').materialMenu('open', event, {
+            noclip: true
+        });
+    });
+    */
 });

@@ -9,13 +9,15 @@ let view = {};
 
 const createWindow = () => {
 	mainWindow = new BrowserWindow({
-		minWidth: 800,
-		minHeight: 600,
+		width: 1000,
+		height: 600,
 		webPreferences: {
 			nodeIntegration: true
 		},
 		frame: true
 	});
+
+	mainWindow.setMenu(null);
 
 	mainWindow.loadURL(`file://${__dirname}/index.html`);
 	mainWindow.webContents.openDevTools();

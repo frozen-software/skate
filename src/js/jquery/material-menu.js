@@ -137,7 +137,6 @@
 
     function openMenu(menu, o, settings) {
         menu.open = true;
-        console.log(o);
         updatePos(menu, (o.pageX || false), (o.pageY || false), settings);
 
         menu.element.css('opacity', 0)
@@ -154,7 +153,11 @@
         });
 
         $("webview").on('focus', (e) => {
-                closeMenu(menu)
+            closeMenu(menu)
+        });
+
+        $(window).on("resize", (e) => {
+            closeMenu(menu)
         });
     }
 

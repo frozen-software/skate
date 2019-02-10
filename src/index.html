@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="css/ripple.css" type="text/css" />
 		<link rel="stylesheet/less" href="css/main.less" type="text/css" />
 		<link rel="stylesheet" href="css/material-menu.css" type="text/css" />
-		
+
 		<!-- LESS -->
 		<script src="js/less.min.js"></script>
 
@@ -30,21 +30,32 @@
 					<span class="material-icons">arrow_forward</span>
 				</button>
 				<div class="input">
-					<button title="Secure">
+					<button title="Secure" class="https">
 						<span class="material-icons">lock</span>
 					</button>
+					<button title="Unsecure" class="http">
+						<span class="material-icons">lock_open</span>
+					</button>
+					<button title="Error" class="error">
+						<span class="material-icons">error_outline</span>
+					</button>
+					<button title="Loading" class="loading">
+						<span class="material-icons">more_horiz</span>
+					</button>
+
 					<input type="text">
+
 					<button title="Search" class="search">
 						<span class="material-icons">search</span>
 					</button>
 				</div>
-				<button id="menu" title="More">
+				<button class="menu" title="More">
 					<span class="material-icons">more_vert</span>
 				</button>
 			</div>
 			<div class="content">
 				<!-- Webview for now until I get layering figured out for the BrowserView :) -->
-				<webview src="https://google.com" preload="js/preload.js"></webview>
+				<webview src="https://electronjs.org/"></webview>
 			</div>
 		</div>
 
