@@ -1,7 +1,7 @@
 {
   "name": "skate",
   "productName": "skate",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "My Electron application description",
   "main": "src/app.js",
   "scripts": {
@@ -21,8 +21,7 @@
     "forge": {
       "make_targets": {
         "win32": [
-          "squirrel",
-          "zip"
+          "squirrel"
         ],
         "darwin": [
           "dmg",

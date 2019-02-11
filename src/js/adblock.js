@@ -1,6 +1,9 @@
 const { client, containsAds, initialize } = require("contains-ads");
 
-initialize().then(() => {
+initialize({
+    privacy: true,
+    ads: true,
+}).then(() => {
     $("webview")[0].getWebContents().session.webRequest.onBeforeRequest((i, cb) => {
         const url = i.url;
         if (containsAds(url)) {
