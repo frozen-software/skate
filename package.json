@@ -38,9 +38,9 @@
       },
       "electronWinstallerConfig": {
         "name": "SkateBrowser",
-        "iconUrl": "src/icons/skate_256x256.ico",
-        "setupIcon": "src/icons/skate_256x256.ico",
-        "loadingGif": "src/icons/loading_270.gif",
+        "iconUrl": "C:\\Users\\Elijah\\Documents\\GitHub\\skate\\src\\icons\\skate_256x256.ico",
+        "setupIcon": "C:\\Users\\Elijah\\Documents\\GitHub\\skate\\src\\icons\\skate_256x256.ico",
+        "loadingGif": "C:\\Users\\Elijah\\Documents\\GitHub\\skate\\src\\icons\\loading_270.gif",
         "noMsi": false
       },
       "electronInstallerDebian": {},
