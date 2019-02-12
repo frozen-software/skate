@@ -21,6 +21,7 @@ initialize({
 		// Context menu
 		$('body').materialMenu('init', {
 			items: [
+				// Navigation
 				{
 					type: 'normal',
 					text: 'Back',
@@ -44,6 +45,7 @@ initialize({
 						$("webview")[0].reload();
 					}
 				},
+				// Media
 				{
 					type: 'divider',
 					visible: (p.mediaType == 'image')
@@ -56,6 +58,7 @@ initialize({
 						$("webview")[0].loadURL(p.srcURL);
 					}
 				},
+				// Dev
 				{
 					type: 'divider'
 				},
