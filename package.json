@@ -16,7 +16,7 @@
   },
   "keywords": [],
   "author": "Elijah",
-  "license": "MIT",
+  "license": "GPL-3",
   "config": {
     "forge": {
       "make_targets": {
@@ -34,14 +34,17 @@
         ]
       },
       "electronPackagerConfig": {
-        "packageManager": "npm"
+        "packageManager": "npm",
+        "icon": "C:/Users/%USERNAME%/Documents/GitHub/skate/src/icons/skate_256x256.ico"
       },
       "electronWinstallerConfig": {
         "name": "SkateBrowser",
-        "iconUrl": "C:\\Users\\Elijah\\Documents\\GitHub\\skate\\src\\icons\\skate_256x256.ico",
-        "setupIcon": "C:\\Users\\Elijah\\Documents\\GitHub\\skate\\src\\icons\\skate_256x256.ico",
-        "loadingGif": "C:\\Users\\Elijah\\Documents\\GitHub\\skate\\src\\icons\\loading_270.gif",
-        "noMsi": false
+        "iconUrl": "C:/Users/%USERNAME%/Documents/GitHub/skate/src/icons/skate_256x256.ico",
+        "setupIcon": "C:/Users/%USERNAME%/Documents/GitHub/skate/src/icons/skate_256x256.ico",
+        "loadingGif": "C:/Users/%USERNAME%/Documents/GitHub/skate/src/icons/loading_270.gif",
+        "author": "Frozen Software",
+        "exe": "SkateBrowser.exe",
+        "setupExe": "SkateBrowser_Setup.exe"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
