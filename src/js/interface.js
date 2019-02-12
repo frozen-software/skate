@@ -13,6 +13,20 @@ $(document).ready(() => {
 		w.setUserAgent(
 			w.getUserAgent().replace(" Electron/4.0.0", "").replace("skate", "SkateBrowser")
 		);
+		$("webview")[0].getWebContents().insertCSS(`
+			::-webkit-scrollbar {     
+				background-color: rgba(212, 212, 212, 1);
+				width: 14px;
+				height: 14px;
+				display: block;
+			}
+
+			::-webkit-scrollbar-thumb:window-inactive,
+			::-webkit-scrollbar-thumb {
+        		background: #6f6f6f;
+    			border: 2px solid rgb(212, 212, 212);
+			}
+		`);
 	});
 
 	// Page finished
@@ -37,6 +51,14 @@ $(document).ready(() => {
 
 	});
 
+	w.addEventListener("did-fail-load", () => {
+		$(".file").css({ display: "none" });
+		$(".http").css({ display: "none" });
+		$(".https").css({ display: "none" });
+		$(".error").css({ display: "initial" });
+		$(".loading").css({ display: "none" });
+	});
+
 	w.addEventListener("did-start-loading", () => {
 		$(".loading").css({ display: "initial" });
 		$(".http").css({ display: "none" });
@@ -54,7 +76,7 @@ $(document).ready(() => {
 	w.addEventListener("did-navigate", (opts) => {
 		$("input").val(w.getURL());
 		const p = URL.parse(opts.url).protocol;
-
+		console.log(p);
 		if (p == "https:" || p == "ftps:" || p == "wss:") {
 			protocol = "https";
 			$(".https").css({ display: "initial" });
@@ -147,32 +169,5 @@ $(document).ready(() => {
 		]
 	}).click(() => {
 		$('.menu').materialMenu('open');
-	});
-
-	// Context menu
-	$('body').materialMenu('init', {
-		items: [
-			{
-				type: 'normal',
-				text: 'Add Bookmark'
-			},
-			{
-				type: 'divider'
-			},
-			{
-				type: 'normal',
-				text: 'Inspect Element'
-			},
-			{
-				type: 'normal',
-				text: 'Exit'
-			}
-		],
-		position: '',
-		animationSpeed: 100
-	}).bind('contextmenu', (e) => {
-		/*$('body').materialMenu('open', e, {
-			noclip: true
-		});*/
 	});
 });

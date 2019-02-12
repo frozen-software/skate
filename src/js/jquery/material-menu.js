@@ -10,7 +10,8 @@
             top: false,
             left: false,
             noclip: false,
-            close: false
+            close: false,
+            delete: false
         }, settings);
 
         return this.each(function (item) {
@@ -33,6 +34,7 @@
                         type: "normal",
                         icon: "",
                         radioGroup: "default",
+                        visible: true,
                         click: function () { }
                     }, item);
                     if (item.type === 'toggle') {
@@ -40,6 +42,7 @@
                         var itemElement = $(elStr)
                             .append("<i class='material-icons md-24'>check</i>")
                             .append("<span>" + item.text + "</span>")
+                            .css({ "display": (item.visible ? "inherit" : "none") })
                             .click(function () {
                                 if (item.checked) {
                                     item.element.addClass('unchecked');
@@ -49,7 +52,7 @@
                                 item.checked = !item.checked;
                                 item.click(menu.parent, item.checked);
                                 if (!settings.close) {
-                                    closeMenu(menu);
+                                    closeMenu(menu, settings);
                                 }
                             });
                     } else if (item.type === 'radio') {
@@ -57,6 +60,7 @@
                         var itemElement = $(elStr)
                             .append("<i class='material-icons md-24'>check</i>")
                             .append("<span>" + item.text + "</span>")
+                            .css({ "display": (item.visible ? "inherit" : "none") })
                             .click(function () {
                                 menu.items.forEach(function (otherItem) {
                                     if (otherItem.radioGroup === item.radioGroup) {
@@ -71,32 +75,36 @@
                                 });
                                 item.click(menu.parent, item.checked);
                                 if (!settings.close) {
-                                    closeMenu(menu);
+                                    closeMenu(menu, settings);
                                 }
                             });
                     } else if (item.type === 'divider') {
-                        var itemElement = $("<li class='divider'></li>");
+                        var itemElement = $("<li class='divider'></li>")
+                        .css({ "display": (item.visible ? "inherit" : "none") })
                     } else if (item.type === 'label') {
                         var itemElement = $("<li class='label'></li>")
+                        .css({ "display": (item.visible ? "inherit" : "none") })
                             .html(item.text);
                     } else if (item.type === 'submenu') {
                         var itemElement = $("<li></li>")
                             .append("<span>" + item.text + "</span>")
+                            .css({ "display": (item.visible ? "inherit" : "none") })
                             .append('<div class="icon-wrapper sm-right"><i class="material-icons md-24 sm-rotate-90">arrow_drop_up</i></div>')
                             .click(function () {
                                 item.click(menu.parent);
                                 if (!settings.close) {
-                                    closeMenu(menu);
+                                    closeMenu(menu, settings);
                                 }
                             });
                     } else if (item.type === 'normal') {
                         var icon = (item.icon.length > 0) ? `<icon class='material-icons'>${item.icon}</icon>` : ``;
                         var itemElement = $("<li></li>")
+                            .css({ "display": (item.visible ? "inherit" : "none") })
                             .html(item.text + icon)
                             .click(function () {
                                 item.click(menu.parent);
                                 if (!settings.close) {
-                                    closeMenu(menu);
+                                    closeMenu(menu, settings);
                                 }
                             });
                     } else {
@@ -129,7 +137,7 @@
                 if (!menu.open) {
                     return;
                 }
-                closeMenu(menu);
+                closeMenu(menu, settings);
                 return this;
             }
         });
@@ -148,22 +156,30 @@
 
         $(document).on('mousedown', function (event) {
             if (!$(event.target).closest(menu.element).length) {
-                closeMenu(menu);
+                closeMenu(menu, settings)
             }
         });
 
         $("webview").on('focus', (e) => {
-            closeMenu(menu)
+            closeMenu(menu, settings)
         });
 
         $(window).on("resize", (e) => {
-            closeMenu(menu)
+            closeMenu(menu, settings)
         });
     }
 
-    function closeMenu(menu) {
+    function closeMenu(menu, settings) {
         menu.element.fadeOut(menu.settings.animationSpeed / 2, function () {
             menu.open = false;
+
+            if (settings === undefined) {
+                settings = {};
+                settings.delete = false;
+            }
+            if (settings.delete) {
+                menu.element.remove();
+            }
         });
     }
 
