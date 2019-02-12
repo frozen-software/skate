@@ -37,7 +37,7 @@
         "packageManager": "npm"
       },
       "electronWinstallerConfig": {
-        "name": "Skate Browser",
+        "name": "SkateBrowser",
         "iconUrl": "src/icons/skate_256x256.ico",
         "setupIcon": "src/icons/skate_256x256.ico",
         "loadingGif": "src/icons/loading_270.gif",
