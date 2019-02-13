@@ -1,7 +1,7 @@
 {
   "name": "skate",
   "productName": "skate",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Browser swiftly and peacefully with Skate Browser",
   "main": "src/app.js",
   "scripts": {
