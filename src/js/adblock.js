@@ -13,11 +13,24 @@ initialize({
 		}
 	});
 
+	$("webview")[0].addEventListener("ipc-message", (event) => {
+		if (event.channel == "close_context_menu") {
+			$('body').materialMenu("close", {
+				delete: true
+			});
+		}
+	});
+
 	$("webview")[0].getWebContents().on("context-menu", (e, p) => {
 		var event = {
 			pageX: p.x,
 			pageY: p.y
 		}
+
+		$('body').materialMenu("close", {
+			delete: true
+		});
+
 		// Context menu
 		$('body').materialMenu('init', {
 			items: [
@@ -71,7 +84,7 @@ initialize({
 				}
 			],
 			position: '',
-			animationSpeed: 100
+			animationSpeed: 50
 		});
 		$('body').materialMenu('open', event, {
 			noclip: true,
