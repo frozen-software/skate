@@ -1,7 +1,7 @@
 {
   "name": "skate",
   "productName": "skate",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Browser swiftly and peacefully with Skate Browser",
   "main": "src/app.js",
   "scripts": {
@@ -35,13 +35,13 @@
       },
       "electronPackagerConfig": {
         "packageManager": "npm",
-        "icon": "C:/Users/%USERNAME%/Documents/GitHub/skate/src/icons/skate_256x256.ico"
+        "icon": "C:/Users/%USERNAME%/Documents/GitHub/skate/icons/skate_256x256.ico"
       },
       "electronWinstallerConfig": {
         "name": "SkateBrowser",
-        "iconUrl": "C:/Users/%USERNAME%/Documents/GitHub/skate/src/icons/skate_256x256.ico",
-        "setupIcon": "C:/Users/%USERNAME%/Documents/GitHub/skate/src/icons/skate_256x256.ico",
-        "loadingGif": "C:/Users/%USERNAME%/Documents/GitHub/skate/src/icons/loading_270.gif",
+        "iconUrl": "C:/Users/%USERNAME%/Documents/GitHub/skate/icons/skate_256x256.ico",
+        "setupIcon": "C:/Users/%USERNAME%/Documents/GitHub/skate/icons/skate_256x256.ico",
+        "loadingGif": "C:/Users/%USERNAME%/Documents/GitHub/skate/icons/loading_270.gif",
         "author": "Frozen Software",
         "exe": "SkateBrowser.exe",
         "setupExe": "SkateBrowser_Setup.exe"

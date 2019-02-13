@@ -52,6 +52,15 @@ $(document).ready(() => {
 		}
 	});
 
+	w.addEventListener("did-change-theme-color", (e) => {
+		/*console.log(e.themeColor);
+		less.modifyVars({
+			'@primary': e.themeColor,
+			'primary': e.themeColor
+		});
+		less.refreshStyles()*/
+	})
+
 	w.addEventListener("did-start-loading", () => {
 		$(".loading").css({ display: "initial" });
 		$(".http").css({ display: "none" });

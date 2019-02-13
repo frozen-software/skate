@@ -16,7 +16,7 @@ const createWindow = () => {
 			nodeIntegration: true
 		},
 		frame: true,
-		icon: path.join(__dirname, 'icons/skate_128x128.png')
+		icon: path.join(__dirname, '../icons/skate_128x128.png')
 	});
 
 	mainWindow.setMenu(null);

@@ -80,7 +80,7 @@ initialize({
 					type: 'normal',
 					text: 'Inspect Element',
 					click: () => {
-						$("webview")[0].getWebContents().toggleDevTools()
+						$("webview")[0].inspectElement(p.x, p.y);
 					}
 				}
 			],
