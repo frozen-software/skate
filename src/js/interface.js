@@ -1,11 +1,17 @@
 const electron = require("electron").remote;
 const { ipcRenderer } = require("electron");
 const URL = require("url");
+const { makeUrl } = require("./js/filter.js");
 
 const key = electron.globalShortcut;
 const w = $("webview")[0];
 
 var protocol = "http";
+
+const search = () => {
+	var v = $("input").val();
+	w.loadURL(makeUrl(v));
+}
 
 $(document).ready(() => {
 	// Webview DOM ready
@@ -44,11 +50,6 @@ $(document).ready(() => {
 		} else {
 			$(".back").attr("disabled", false);
 		}
-	});
-
-	// Received a message from preload
-	w.addEventListener("ipc-message", (e) => {
-
 	});
 
 	w.addEventListener("did-start-loading", () => {
@@ -97,8 +98,7 @@ $(document).ready(() => {
 	(() => {
 		// Search button
 		$(".search").click(() => {
-			var v = $("input").val();
-			w.loadURL(v);
+			search();
 		});
 
 		// Refresh button
@@ -123,8 +123,7 @@ $(document).ready(() => {
 		// Enter key
 		$("input").on("keypress", (e) => {
 			if (e.which === 13) {
-				var v = $("input").val();
-				w.loadURL(v);
+				search();
 			}
 		});
 	})();
