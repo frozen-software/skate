@@ -51,14 +51,6 @@ $(document).ready(() => {
 
 	});
 
-	w.addEventListener("did-fail-load", () => {
-		$(".file").css({ display: "none" });
-		$(".http").css({ display: "none" });
-		$(".https").css({ display: "none" });
-		$(".error").css({ display: "initial" });
-		$(".loading").css({ display: "none" });
-	});
-
 	w.addEventListener("did-start-loading", () => {
 		$(".loading").css({ display: "initial" });
 		$(".http").css({ display: "none" });

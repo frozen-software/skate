@@ -18,6 +18,7 @@ initialize({
 			$('body').materialMenu("close", {
 				delete: true
 			});
+			$('.menu').materialMenu('close');
 		}
 	});
 
@@ -45,17 +46,17 @@ initialize({
 				},
 				{
 					type: 'normal',
-					text: 'Forward',
-					visible: $("webview")[0].canGoForward(),
+					text: 'Reload',
 					click: () => {
-						$("webview")[0].goForward();
+						$("webview")[0].reload();
 					}
 				},
 				{
 					type: 'normal',
-					text: 'Reload',
+					text: 'Forward',
+					visible: $("webview")[0].canGoForward(),
 					click: () => {
-						$("webview")[0].reload();
+						$("webview")[0].goForward();
 					}
 				},
 				// Media
